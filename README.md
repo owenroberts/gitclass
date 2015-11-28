@@ -42,12 +42,12 @@ Okay, here are the essential commands:
 - `git commit` - commits changes - in git changes have to be committed to be permanently added to a project, each commit marks a new update in the project - commits have identification numbers to be references for reverting, checking out etc.
   - `git commit -m "initial commit` - common way to commit, `-m` lets you add message describing changes in commit
 - `git checkout <branch>` - checkout a different commit or branch
-  - `git checkout -b newfeature` - creates a new branch and checks it out (opens it in working directory)
+  - `git checkout -b new_feature` - creates a new branch and checks it out (opens it in working directory)
   - `git checkout master` - checkout master branch at HEAD (most recent commit)
   - `git checkout HEAD~2` - move back to earlier commit
   - `git checkout 874f93` - move to specific commit using first 6 digits in id number
 - `git merge <branch>` - merges a branch with current branch
-  - `git merge newfeature`
+  - `git merge new_feature`
 - `git revert <branch>` - undoes specific commit
   - `git revert 1839dj`
 - `git rebase <branch>` - brings current branch up to date with specific branch
@@ -59,12 +59,12 @@ Most likely, if you're working on your own, you will only need `init`, `status`,
 
 Keep track of the email you use, you will need to set it as your `user.email` to upload repos to your account.
 
-Create a new repo and copy the address.  Should be something like `http://github.com/username/reponame.git`
+Create a new repo and copy the address.  Should be something like `https://github.com/username/reponame.git`
 
 **More git commands to add your local repo to the GitHub repo**
 
 - `git remote add origin <server>` - this is how to add a remote repo to your project.  usually you will use origin as the name for the GitHub repo, but it could be anything.  Argument is the link we just copied.
-  - `git remote add origin `http://github.com/username/reponame.git`
+  - `git remote add origin https://github.com/username/reponame.git`
 - `git config` - configure your user settings.  May need to do this to get permissions set up to push to your repo, or not sometimes.  If you use `https://` to remote add or clone should be fine.
   - `git config -help` - see your config options.  in general `-help` after a command is very helpful.
   - `git config --global user.name "your name"` - Set your username.
@@ -73,6 +73,12 @@ Create a new repo and copy the address.  Should be something like `http://github
 - `git push origin master` - send your commits to the remote repo.  origin is the remote location, master is the branch.  you can commit multiple branches.
 - `git pull` - get changes from remote repo.
 
+If you are working on a project that already exists, you can `clone` to make a copy on your macine:
+
+- `git clone https://github.com/username/reponame.git`
+
+Don't make a folder with the name of the project to clone into because the clone operation will make a folder so then you'll just have two folders.  Start in the folder where you want the project folder to be.
+
 With remote repos, commits and merges work the same, but only when you push the changes.  If you are collaborating with other developers, you will sometimes get a `merge conflict`, where one lines have been changed in both commits that are being merged, and git doesn't know which to use, which will look like this:
 
 ```
@@ -80,7 +86,7 @@ With remote repos, commits and merges work the same, but only when you push the 
 <p>Welcome to my website!</p>
 =======
 <p>Welcome to my butt!!!</p>
->>>>>>> new_branch
+>>>>>>> new_feature
 ```
 
 You then edit the file to get rid of the git stuff and the uneeded code, and create a new commit.
