@@ -95,3 +95,4 @@ You then edit the file to get rid of the git stuff and the uneeded code, and cre
 #Links
 - [Set up git](https://help.github.com/articles/set-up-git/)
 - [git simple guide](http://rogerdudler.github.io/git-guide/)
+add username caching, .gitignore links
